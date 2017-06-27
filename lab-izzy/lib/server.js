@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on('connected', function() {
+  console.log('MONGO IS READY!');
+});
 
 const app = express();
 let server;
