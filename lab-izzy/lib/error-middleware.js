@@ -11,6 +11,9 @@ module.exports = (err, req, res, next) => {
   if(err.message.indexOf('duplicate key') > - 1)
     return res.sendStatus(409);
 
+  if(err.message.toLowerCase().includes('objectid failed'))
+    return res.sendStatus(404);
+    
   // otherwise respond with 500
   res.sendStatus(500);
 };

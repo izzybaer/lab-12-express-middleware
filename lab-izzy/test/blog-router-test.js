@@ -157,7 +157,7 @@ describe('testing blog router', () => {
     it('should respond with a 404', () => {
       console.log('tempBlog', tempBlog);
       return superagent.delete(`${API_URL}/api/blogs/0439818}`)
-        .catcjh(res => {
+        .catch(res => {
           expect(res.status).toEqual(404);
         });
     });
